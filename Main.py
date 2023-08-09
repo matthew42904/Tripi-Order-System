@@ -41,24 +41,59 @@ def new_item():
             if again == "n":
                 return
             else:
-                return
+                pass
 
 def Manufature_lookup():
-    pass
+    while True:
+        manlook = str(input("enter a Manufature: "))
+        c.execute("SELECT * FROM tripi WHERE manufacture=?", (manlook, ))
+        records = c.fetchall()
+        print("Total rows are:  ", len(records))
+        print("Printing each row")
+        print()
+        for row in records:
+            print("Manufature name: ", row[0])
+            print("Item name: ", row[1])
+            print("Tripi number: ", row[2])
+            print("\n")
+
+        again = str(input("another? y/n: "))
+        if again == "n":
+            return
+        else:
+            pass
+
 
 def item_lookup():
-    pass
+    while True:
+        manlook = str(input("enter a Item: "))
+        c.execute("SELECT * FROM tripi WHERE item=?", (manlook, ))
+        records = c.fetchall()
+        print("Total rows are:  ", len(records))
+        print("Printing each row")
+        print()
+        for row in records:
+            print("Manufature name: ", row[0])
+            print("Item name: ", row[1])
+            print("Tripi number: ", row[2])
+            print("\n")
+
+        again = str(input("another? y/n: "))
+        if again == "n":
+            return
+        else:
+            pass
 
 def tripinum_lookup():
     pass
 
 def lookup_item():
     chose = str(input("""
-                    1 - search by Manufature name
-                    2 - search by Item name
-                    3 - search by Tripi number
-                    enter to go back
-                    selected:  """))
+                1 - search by Manufature name
+                2 - search by Item name
+                3 - search by Tripi number
+                4 - return to home
+                selected:  """))
         
     if chose == "1":
         Manufature_lookup()
@@ -66,8 +101,25 @@ def lookup_item():
         item_lookup()
     elif chose == "3":
         tripinum_lookup()
+    elif chose == "4":
+        return
     else:
         return
+
+
+def remove_item():
+    while True:
+        num = str(input("""
+        enter the tripi number of the item you want removed
+        you entered:    """))
+        
+        c.execute("DELETE from tripi where TripiCode=?", (num, ))
+        conn.commit()
+        again = str(input("another? y/n: "))
+        if again == "n":
+            return
+        else:
+            pass
 
 
 while True: 
@@ -75,6 +127,8 @@ while True:
                 1 - make table
                 2 - new item
                 3 - item lookup
+                4 - remove items
+                5 - number of items you have in you book
                 m - TBD
                 e or enter - exit
                 selected:  """))
@@ -85,6 +139,13 @@ while True:
          new_item()
     elif chose == "3":
          lookup_item()
+    elif chose == "4":
+        remove_item()
+    elif chose == "5":
+        c.execute("SELECT * FROM tripi")
+        records = c.fetchall()
+        print()
+        print("You have " + str(len(records)) + " In your book")
     elif chose == "m":
         print("you tried to go to a secret place but it failed. maybe one day. maybe one day hehehe")
         print()
