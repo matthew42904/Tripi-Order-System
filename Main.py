@@ -8,14 +8,14 @@ except Error as e:
     print(e)
 
 c = conn.cursor()
+while True: 
+    prod_1_manufature = str(input("Manufature Name: "))
+    prod_1_item = str(input("Item Name: "))
+    prod_1_TripiNumber= str(input("Tripi Number: "))
+    # add to tripi with a input: 
+    c.execute("INSERT INTO tripi VALUES (?, ?, ?)", (prod_1_manufature, prod_1_item, prod_1_TripiNumber))
 
-prod_1_manufature = str(input("Manufature Name: "))
-prod_1_item = str(input("Item Name: "))
-prod_1_TripiNumber= str(input("Tripi Number: "))
-# add to tripi with a input: 
-c.execute("INSERT INTO tripi VALUES (?, ?, ?)", (prod_1_manufature, prod_1_item, prod_1_TripiNumber))
-
-conn.commit()
+    conn.commit()
 
 
 
