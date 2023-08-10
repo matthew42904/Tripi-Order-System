@@ -79,7 +79,6 @@ def item_lookup():
             print("Tripi number: ", row[2])
             print("minumum quanity: ", row[3])
             print("\n")
-
         again = str(input("another? y/n: "))
         if again == "n":
             return
@@ -100,7 +99,6 @@ def tripinum_lookup():
             print("Tripi number: ", row[2])
             print("minumum quanity: ", row[3])
             print("\n")
-
         again = str(input("another? y/n: "))
         if again == "n":
             return
