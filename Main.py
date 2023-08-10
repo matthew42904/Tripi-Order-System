@@ -169,8 +169,6 @@ def editor_quanity_tripi():
     conn.commit()
     return
 
-
-
 def editor():
     chose = str(input("""
                 1 - edit tripi number by item name
