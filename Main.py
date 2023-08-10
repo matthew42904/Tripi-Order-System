@@ -155,35 +155,40 @@ def editor_item_tripi():
     conn.commit()
     return
 
-def editor_quanity_tripi():
+def editor_tripi_tripi():
     one = int(input("new tripi number: "))
     two = int(input("old tripi number: "))
     c.execute("UPDATE tripi SET TripiCode = ? WHERE TripiCode = ?", (one, two, ))
     conn.commit()
     return
 
-def editor_tripi_tripi():
-    one = int(input("new tripi number: "))
-    two = int(input("old tripi number: "))
+def editor_quanity_tripi():
+    one = int(input("new quanity number: "))
+    two = int(input("tripi number: "))
     c.execute("UPDATE tripi SET quanity = ? WHERE TripiCode = ?", (one, two, ))
     conn.commit()
     return
+
+
 
 def editor():
     chose = str(input("""
                 1 - edit tripi number by item name
                 2 - edit item name by tripi number
                 3 - edit tripi number with tripi number
-                4 - return to home
+                4 - edit quanity with tripi number
+                5 - return to home
                 selected:  """))
         
     if chose == "1":
         editor_tripi_item()
     elif chose == "2":
-        pass
+        editor_item_tripi()
     elif chose == "3":
-        pass
-    elif chose == "4":
+        editor_tripi_tripi()
+    elif chose =='4':
+        editor_quanity_tripi()
+    elif chose == "5":
         return
     else:
         return
