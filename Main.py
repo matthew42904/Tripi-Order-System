@@ -138,16 +138,39 @@ def remove_item():
         else:
             pass
 
+def editor_tripi_item():
+    one = str(input("new tripi number: "))
+    two = str(input("item name: "))
+    c.execute("UPDATE tripi SET TripiCode = ? WHERE item = ?", (one, two, ))
+    conn.commit()
+    return
+
+def editor_item_tripi():
+    one = str(input("new item name: "))
+    two = str(input("tripi number: "))
+    c.execute("UPDATE tripi SET item = ? WHERE TripiCode = ?", (one, two, ))
+    conn.commit()
+    return
+
+def editor_tripi_tripi():
+    one = str(input("new tripi number: "))
+    two = str(input("old tripi number: "))
+    c.execute("UPDATE tripi SET TripiCode = ? WHERE TripiCode = ?", (one, two, ))
+    conn.commit()
+    return
+
+
+
 def editor():
     chose = str(input("""
                 1 - edit tripi number by item name
-                2 - edit name by tripi number
+                2 - edit item name by tripi number
                 3 - edit tripi number with tripi number
                 4 - return to home
                 selected:  """))
         
     if chose == "1":
-        pass
+        editor_tripi_item()
     elif chose == "2":
         pass
     elif chose == "3":
@@ -166,6 +189,7 @@ while True:
                 5 - number of items you have in you book
                 6 - editor (HARD TO USE!!!)
                 7 - push changes (NOT USED AT THIS TIME)
+                8 - make a order(NOT AVALABLE YET!!!!)
                 c - my contact info
                 m - TBD
                 e or enter - exit
@@ -188,6 +212,8 @@ while True:
         editor()
     elif chose == '7':
         print("not used at this time")
+    elif chose == '8':
+        print("NOT AVALABLE YET!!!!")
     elif chose == "c":
         print()
         print("name: Matthew Bakken")
