@@ -140,7 +140,9 @@ def remove_item():
 
 def editor():
     chose = str(input("""
-                1 - TBD
+                1 - edit tripi number by item name
+                2 - edit name by tripi number
+                3 - edit tripi number with tripi number
                 4 - return to home
                 selected:  """))
         
