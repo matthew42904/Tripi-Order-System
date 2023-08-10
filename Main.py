@@ -165,6 +165,8 @@ while True:
                 4 - remove items
                 5 - number of items you have in you book
                 6 - editor (HARD TO USE!!!)
+                7 - push changes (NOT USED AT THIS TIME)
+                c - my contact info
                 m - TBD
                 e or enter - exit
                 selected:  """))
@@ -184,30 +186,28 @@ while True:
         print("You have " + str(len(records)) + " In your book")
     elif chose == "6":
         editor()
+    elif chose == '7':
+        print("not used at this time")
+    elif chose == "c":
+        print()
+        print("name: Matthew Bakken")
+        print("email: matthew42904@gmail.com")
+        print("discord: @m451224")
+        print()
     elif chose == "m":
-        print("you tried to go to a secret place but it failed. maybe one day. maybe one day hehehe")
+        print()
+        print("just wanted to say keep looking at the possitive in life and put behind the negatives.")
+        print("you will get through the hard times it will just take time.")
+        print("you always have your team there for you when you need someone to talk to.")
+        print("                                     😊")
         print()
     elif chose == "e":
         print("Have a good day :)")
+        conn.close()
         time.sleep(2)
         exit()
     else:
         print("Have a good day :)")
-        time.sleep(3)
+        conn.close()
+        #time.sleep(3)
         exit()
-
-
-
-
-
-# add to tripi with a pepsi manufature test item and a item number of 15699: 
-#c.execute("""INSERT INTO tripi VALUES ("pepsi",'test5', "15669")""")
-
-
-
-#c.execute("""SELECT * FROM tripi WHERE manufacture='pepsi'""")
-
-#print(c.fetchall())
-
-
-conn.close()
