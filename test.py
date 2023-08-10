@@ -10,6 +10,6 @@ except Error as e:
 
 c = conn.cursor()
 
-c.execute("SELECT * FROM tripi")
-records = c.fetchall()
-print(len(records))
+one = str(input(""))
+
+c.execute("UPDATE tripi SET TripiCode = '7777' WHERE item = 'pepsi'")

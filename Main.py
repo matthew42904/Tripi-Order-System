@@ -85,7 +85,24 @@ def item_lookup():
             pass
 
 def tripinum_lookup():
-    pass
+    while True:
+        manlook = str(input("enter a Item: "))
+        c.execute("SELECT * FROM tripi WHERE TripiCode=?", (manlook, ))
+        records = c.fetchall()
+        print("Total rows are:  ", len(records))
+        print("Printing each row")
+        print()
+        for row in records:
+            print("Manufature name: ", row[0])
+            print("Item name: ", row[1])
+            print("Tripi number: ", row[2])
+            print("\n")
+
+        again = str(input("another? y/n: "))
+        if again == "n":
+            return
+        else:
+            pass
 
 def lookup_item():
     chose = str(input("""
@@ -121,6 +138,22 @@ def remove_item():
         else:
             pass
 
+def editor():
+    chose = str(input("""
+                1 - TBD
+                4 - return to home
+                selected:  """))
+        
+    if chose == "1":
+        pass
+    elif chose == "2":
+        pass
+    elif chose == "3":
+        pass
+    elif chose == "4":
+        return
+    else:
+        return
 
 while True: 
     chose = str(input("""
@@ -129,6 +162,7 @@ while True:
                 3 - item lookup
                 4 - remove items
                 5 - number of items you have in you book
+                6 - editor (HARD TO USE!!!)
                 m - TBD
                 e or enter - exit
                 selected:  """))
@@ -146,6 +180,8 @@ while True:
         records = c.fetchall()
         print()
         print("You have " + str(len(records)) + " In your book")
+    elif chose == "6":
+        editor()
     elif chose == "m":
         print("you tried to go to a secret place but it failed. maybe one day. maybe one day hehehe")
         print()
