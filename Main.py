@@ -21,7 +21,6 @@ def make_table():
         print(e)
         print("There was a error. Contact admin(Matthew Bakken)")
 
-
 def new_item():
         while True:
             prod_1_manufature = str(input("Manufature Name: "))
@@ -62,7 +61,6 @@ def Manufature_lookup():
             return
         else:
             pass
-
 
 def item_lookup():
     while True:
@@ -122,7 +120,6 @@ def lookup_item():
         return
     else:
         return
-
 
 def remove_item():
     while True:
