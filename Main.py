@@ -159,8 +159,6 @@ def editor_tripi_tripi():
     conn.commit()
     return
 
-
-
 def editor():
     chose = str(input("""
                 1 - edit tripi number by item name
@@ -214,7 +212,7 @@ while True:
                 5 - number of items you have in you book
                 6 - editor (HARD TO USE!!!)
                 7 - push changes (NOT USED AT THIS TIME)
-                8 - make a order(NOT AVALABLE YET!!!!)
+                8 - make a order (IF ANY ISSUES CONTACT ME)
                 c - my contact info
                 m - TBD
                 e or enter - exit
