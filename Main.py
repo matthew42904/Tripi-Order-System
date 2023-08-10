@@ -13,7 +13,7 @@ c = conn.cursor()
 def make_table():
     try:
         # make table: 
-        c.execute("""CREATE TABLE tripi (manufacture text, item text,TripiCode integer)""")
+        c.execute("""CREATE TABLE tripi (manufacture text, item text,TripiCode integer, quanity integer)""")
         conn.commit()
         print("done")
         print()
@@ -32,8 +32,11 @@ def new_item():
             prod_1_TripiNumber= int(input("Tripi Number: "))
             if prod_1_TripiNumber == "":
                 return
+            prod_1_quanity= int(input("minumum quanity: "))
+            if prod_1_quanity == "":
+                return
             #add to tripi with a input: 
-            c.execute("INSERT INTO tripi VALUES (?, ?, ?)", (prod_1_manufature, prod_1_item, prod_1_TripiNumber))
+            c.execute("INSERT INTO tripi VALUES (?, ?, ?, ?)", (prod_1_manufature, prod_1_item, prod_1_TripiNumber, prod_1_quanity))
 
             conn.commit()
             again = str(input("another? y/n: "))
@@ -54,6 +57,7 @@ def Manufature_lookup():
             print("Manufature name: ", row[0])
             print("Item name: ", row[1])
             print("Tripi number: ", row[2])
+            print("minumum quanity: ", row[3])
             print("\n")
 
         again = str(input("another? y/n: "))
@@ -74,6 +78,7 @@ def item_lookup():
             print("Manufature name: ", row[0])
             print("Item name: ", row[1])
             print("Tripi number: ", row[2])
+            print("minumum quanity: ", row[3])
             print("\n")
 
         again = str(input("another? y/n: "))
@@ -94,6 +99,7 @@ def tripinum_lookup():
             print("Manufature name: ", row[0])
             print("Item name: ", row[1])
             print("Tripi number: ", row[2])
+            print("minumum quanity: ", row[3])
             print("\n")
 
         again = str(input("another? y/n: "))
@@ -149,10 +155,17 @@ def editor_item_tripi():
     conn.commit()
     return
 
-def editor_tripi_tripi():
+def editor_quanity_tripi():
     one = int(input("new tripi number: "))
     two = int(input("old tripi number: "))
     c.execute("UPDATE tripi SET TripiCode = ? WHERE TripiCode = ?", (one, two, ))
+    conn.commit()
+    return
+
+def editor_tripi_tripi():
+    one = int(input("new tripi number: "))
+    two = int(input("old tripi number: "))
+    c.execute("UPDATE tripi SET quanity = ? WHERE TripiCode = ?", (one, two, ))
     conn.commit()
     return
 
