@@ -31,7 +31,7 @@ def new_item():
             prod_1_TripiNumber= int(input("Tripi Number: "))
             if prod_1_TripiNumber == "":
                 return
-            prod_1_quanity= int(input("minumum quanity: "))
+            prod_1_quanity= int(input("minumum quanity / case amount: "))
             if prod_1_quanity == "":
                 return
             #add to tripi with a input: 
@@ -56,7 +56,7 @@ def Manufature_lookup():
             print("Manufature name: ", row[0])
             print("Item name: ", row[1])
             print("Tripi number: ", row[2])
-            print("minumum quanity: ", row[3])
+            print("minumum quanity / case amount: ", row[3])
             print("\n")
 
         again = str(input("another? y/n: "))
@@ -77,7 +77,7 @@ def item_lookup():
             print("Manufature name: ", row[0])
             print("Item name: ", row[1])
             print("Tripi number: ", row[2])
-            print("minumum quanity: ", row[3])
+            print("minumum quanity / case amount: ", row[3])
             print("\n")
         again = str(input("another? y/n: "))
         if again == "n":
@@ -97,7 +97,7 @@ def tripinum_lookup():
             print("Manufature name: ", row[0])
             print("Item name: ", row[1])
             print("Tripi number: ", row[2])
-            print("minumum quanity: ", row[3])
+            print("minumum quanity / case amount: ", row[3])
             print("\n")
         again = str(input("another? y/n: "))
         if again == "n":
@@ -160,7 +160,7 @@ def editor_tripi_tripi():
     return
 
 def editor_quanity_tripi():
-    one = int(input("new quanity number: "))
+    one = int(input("new quanity/case number: "))
     two = int(input("tripi number: "))
     c.execute("UPDATE tripi SET quanity = ? WHERE TripiCode = ?", (one, two, ))
     conn.commit()
